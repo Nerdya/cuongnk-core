@@ -18,9 +18,16 @@ public class Student {
             generator = "student_sequence"
     )
     private Long id;
+
+    @Column
     private String name;
+
+    @Column
     private String email;
+
+    @Column
     private LocalDate dob;
+
     @Transient
     private Integer age;
 

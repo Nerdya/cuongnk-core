@@ -6,8 +6,10 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.util.List;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class StudentConfig {
 
 //    @Bean

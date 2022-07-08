@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,17 +21,34 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public void addNewStudent(Student student) {
+    public Optional<Student> getStudentById(Long studentId) {
+        Optional<Student> studentOptional = studentRepository
+            .findStudentById(studentId);
+        if (studentOptional.isEmpty()) {
+            throw new IllegalStateException("This id is not exist");
+        }
+        return studentOptional;
+    }
+
+//    public Optional<Student> getStudentByEmail(String email) {
+//        Optional<Student> studentOptional = studentRepository
+//            .findStudentByEmail(email);
+//        if (studentOptional.isEmpty()) {
+//            throw new IllegalStateException("This email is not exist");
+//        }
+//        return studentOptional;
+//    }
+
+    public Student addNewStudent(Student student) {
         Optional<Student> studentOptional = studentRepository
                 .findStudentByEmail(student.getEmail());
         if (studentOptional.isPresent()) {
             throw new IllegalStateException("This email is taken");
         }
-        studentRepository.save(student);
-        System.out.println(student);
+        return studentRepository.save(student);
     }
 
-    public void deleteStudent(Long studentId) {
+    public String deleteStudent(Long studentId) {
        boolean exists = studentRepository.existsById(studentId);
        if (!exists) {
            throw new IllegalStateException(
@@ -40,10 +56,11 @@ public class StudentService {
            );
        }
        studentRepository.deleteById(studentId);
+       return "Deleted student successfully";
     }
 
     @Transactional
-    public void updateStudent(Long studentId,
+    public Student updateStudent(Long studentId,
                               String name,
                               String email) {
         Student student = studentRepository.findById(studentId)
@@ -66,5 +83,7 @@ public class StudentService {
             }
             student.setEmail(email);
         }
+
+        return student;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.example.demo.students;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

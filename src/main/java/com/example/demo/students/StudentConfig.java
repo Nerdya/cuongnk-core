@@ -1,15 +1,11 @@
-package com.example.demo.student;
+package com.example.demo.students;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.time.LocalDate;
-import java.util.List;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:application.yml")
 public class StudentConfig {
 
 //    @Bean

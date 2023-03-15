@@ -1,56 +1,35 @@
 package com.example.demo.entities;
 
+import java.util.Date;
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.Period;
 
 @Entity
-@Table
+@Table(name = "student")
 public class Student {
   @Id
-  @SequenceGenerator(
-      name = "student_sequence",
-      sequenceName = "student_sequence",
-      allocationSize = 1
-  )
-  @GeneratedValue(
-      strategy = GenerationType.SEQUENCE,
-      generator = "student_sequence"
-  )
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column
-  private String name;
+  @Column(name = "first_name")
+  private String firstName;
 
-  @Column
+  @Column(name = "last_name")
+  private String lastName;
+
+  @Column(name = "email")
   private String email;
 
-  @Column
-  private LocalDate dob;
+  @Column(name = "dob")
+  private Date dob;
 
-  @Transient
-  private Integer age;
+  @Column(name = "created_time")
+  private Date createdTime;
 
-  public Student() {
-  }
+  @Column(name = "updated_time")
+  private Date updatedTime;
 
-  public Student(Long id,
-      String name,
-      String email,
-      LocalDate dob) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.dob = dob;
-  }
-
-  public Student(String name,
-      String email,
-      LocalDate dob) {
-    this.name = name;
-    this.email = email;
-    this.dob = dob;
-  }
+  @Column(name = "is_deleted")
+  private Boolean isDeleted;
 
   public Long getId() {
     return id;
@@ -60,12 +39,20 @@ public class Student {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public String getEmail() {
@@ -76,30 +63,35 @@ public class Student {
     this.email = email;
   }
 
-  public LocalDate getDob() {
+  public Date getDob() {
     return dob;
   }
 
-  public void setDob(LocalDate dob) {
+  public void setDob(Date dob) {
     this.dob = dob;
   }
 
-  public Integer getAge() {
-    return Period.between(this.dob, LocalDate.now()).getYears();
+  public Date getCreatedTime() {
+    return createdTime;
   }
 
-  public void setAge(Integer age) {
-    this.age = age;
+  public void setCreatedTime(Date createdTime) {
+    this.createdTime = createdTime;
   }
 
-  @Override
-  public String toString() {
-    return "Student{" +
-        "id=" + id +
-        ", name='" + name + '\'' +
-        ", email='" + email + '\'' +
-        ", dob=" + dob +
-        ", age=" + age +
-        '}';
+  public Date getUpdatedTime() {
+    return updatedTime;
+  }
+
+  public void setUpdatedTime(Date updatedTime) {
+    this.updatedTime = updatedTime;
+  }
+
+  public Boolean getDeleted() {
+    return isDeleted;
+  }
+
+  public void setDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
   }
 }

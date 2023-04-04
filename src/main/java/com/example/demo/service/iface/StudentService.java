@@ -1,17 +1,17 @@
 package com.example.demo.service.iface;
 
+import com.example.demo.dto.StudentDetailDto;
 import com.example.demo.dto.StudentDto;
 import com.example.demo.entities.Student;
+import com.example.demo.exception.BadRequestException;
+import com.example.demo.exception.IdBlankException;
+import com.example.demo.exception.ResourceNotFoundException;
 import java.util.List;
 
-/**
- * @author cuongnk
- * @created_date 14/03/2023
- */
 public interface StudentService {
   List<Student> getStudents();
 
-//  Optional<Student> getStudentById(Long studentId);
+  StudentDetailDto getStudentById(Long id) throws IdBlankException, ResourceNotFoundException, BadRequestException;
 
-  StudentDto createNewStudent(StudentDto student) throws Exception;
+  Long createNewStudent(StudentDto student) throws Exception;
 }

@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import antlr.StringUtils;
 import com.example.demo.dto.StudentDetailDto;
 import com.example.demo.dto.StudentDto;
 import com.example.demo.entities.Student;
@@ -8,25 +7,24 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.IdBlankException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.service.iface.StudentService;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import org.mapstruct.ap.shaded.freemarker.template.utility.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class StudentController {
+public class CustomTextTranslationController {
 
   private final StudentService studentService;
 
   @Autowired
-  public StudentController(StudentService studentService) {
+  public CustomTextTranslationController(StudentService studentService) {
     this.studentService = studentService;
   }
 

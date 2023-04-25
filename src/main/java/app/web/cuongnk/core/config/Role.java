@@ -1,4 +1,4 @@
-package app.web.cuongnk.core.enums;
+package app.web.cuongnk.core.config;
 
 /**
  * @author cuongnk

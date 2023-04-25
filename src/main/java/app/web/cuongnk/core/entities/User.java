@@ -1,6 +1,6 @@
 package app.web.cuongnk.core.entities;
 
-import app.web.cuongnk.core.enums.Role;
+import app.web.cuongnk.core.config.Role;
 import java.util.Date;
 import javax.persistence.*;
 import java.util.Set;

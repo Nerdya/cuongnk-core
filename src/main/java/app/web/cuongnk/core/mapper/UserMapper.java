@@ -15,6 +15,8 @@ public abstract class UserMapper {
 
   public abstract User fromDto(UserDto dto);
 
+  public abstract void updateModel(@MappingTarget User user, UserDto dto);
+
   @BeforeMapping
   public void formatSourceDto(@MappingTarget UserDto dto) {
     dto.setFirstName(dto.getFirstName().trim());

@@ -2,6 +2,7 @@ package app.web.cuongnk.core.service.impl;
 
 import app.web.cuongnk.core.dto.user.UserDto;
 import app.web.cuongnk.core.entities.User;
+import app.web.cuongnk.core.mapper.UserMapper;
 import app.web.cuongnk.core.repositories.UserRepository;
 import app.web.cuongnk.core.service.iface.UserService;
 import org.springframework.stereotype.Service;
@@ -14,19 +15,21 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
   private final UserRepository userRepository;
+  private final UserMapper userMapper;
 
-  public UserServiceImpl(UserRepository userRepository) {
+  public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
     this.userRepository = userRepository;
+    this.userMapper = userMapper;
   }
 
   @Override
-  public void register(UserDto userDto) {
+  public UserDto createUser(UserDto userDto) {
+
+    // TODO: Do checks
+
     User user = new User();
-    user.setUsername(userDto.getUsername());
-    user.setPassword(userDto.getPassword());
-    user.setEmail(userDto.getEmail());
-    user.setFirstName(userDto.getFirstName());
-    user.setLastName(userDto.getLastName());
+    userMapper.updateModel(user, userDto);
     userRepository.save(user);
+    return userMapper.toDto(user);
   }
 }

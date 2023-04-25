@@ -2,6 +2,7 @@ package app.web.cuongnk.core.mapper;
 
 import app.web.cuongnk.core.dto.user.UserDto;
 import app.web.cuongnk.core.entities.User;
+import org.mapstruct.AfterMapping;
 import org.mapstruct.BeforeMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
@@ -17,7 +18,7 @@ public abstract class UserMapper {
 
   public abstract void updateModel(@MappingTarget User user, UserDto dto);
 
-  @BeforeMapping
+  @AfterMapping
   public void formatSourceDto(@MappingTarget UserDto dto) {
     dto.setFirstName(dto.getFirstName().trim());
     dto.setLastName(dto.getLastName().trim());

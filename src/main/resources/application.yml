@@ -5,7 +5,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mar_platform
+    url: jdbc:mysql://localhost:3306/cuongnk_data
     username: root
     password: 1qazXSW@2020
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,6 +1,6 @@
-package com.example.demo.repositories;
+package app.web.cuongnk.core.repositories;
 
-import com.example.demo.entities.Student;
+import app.web.cuongnk.core.entities.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

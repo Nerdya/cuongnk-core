@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package app.web.cuongnk.core.dto;
 
 import java.util.Date;
 

@@ -1,16 +1,15 @@
-package com.example.demo.service.impl;
+package app.web.cuongnk.core.service.impl;
 
-import com.example.demo.dto.StudentDetailDto;
-import com.example.demo.dto.StudentDto;
-import com.example.demo.entities.Student;
-import com.example.demo.exception.BadRequestException;
-import com.example.demo.exception.IdBlankException;
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.mapper.StudentDetailMapper;
-import com.example.demo.mapper.StudentMapper;
-import com.example.demo.repositories.StudentRepository;
-import com.example.demo.service.iface.StudentService;
-import java.text.Normalizer;
+import app.web.cuongnk.core.dto.StudentDetailDto;
+import app.web.cuongnk.core.entities.Student;
+import app.web.cuongnk.core.exception.BadRequestException;
+import app.web.cuongnk.core.exception.IdBlankException;
+import app.web.cuongnk.core.exception.ResourceNotFoundException;
+import app.web.cuongnk.core.mapper.StudentDetailMapper;
+import app.web.cuongnk.core.mapper.StudentMapper;
+import app.web.cuongnk.core.repositories.StudentRepository;
+import app.web.cuongnk.core.service.iface.StudentService;
+import app.web.cuongnk.core.dto.StudentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

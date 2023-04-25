@@ -1,4 +1,4 @@
-package com.example.demo.entities;
+package app.web.cuongnk.core.entities;
 
 import java.util.Date;
 import javax.persistence.*;

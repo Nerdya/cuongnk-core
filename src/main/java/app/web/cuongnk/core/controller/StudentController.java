@@ -1,24 +1,19 @@
-package com.example.demo.controller;
+package app.web.cuongnk.core.controller;
 
-import antlr.StringUtils;
-import com.example.demo.dto.StudentDetailDto;
-import com.example.demo.dto.StudentDto;
-import com.example.demo.entities.Student;
-import com.example.demo.exception.BadRequestException;
-import com.example.demo.exception.IdBlankException;
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.service.iface.StudentService;
+import app.web.cuongnk.core.dto.StudentDetailDto;
+import app.web.cuongnk.core.entities.Student;
+import app.web.cuongnk.core.exception.BadRequestException;
+import app.web.cuongnk.core.exception.IdBlankException;
+import app.web.cuongnk.core.exception.ResourceNotFoundException;
+import app.web.cuongnk.core.service.iface.StudentService;
+import app.web.cuongnk.core.dto.StudentDto;
 import javax.servlet.http.HttpServletRequest;
-import org.mapstruct.ap.shaded.freemarker.template.utility.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import org.springframework.web.client.ResourceAccessException;
 
 @RestController
 public class StudentController {
